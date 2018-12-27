@@ -331,14 +331,17 @@ class CapitalT(object):
         #######################################################################
 
         left_h = self.h_rect.get_upper_left_corner()
-        right_h = self.h_rect.get_lower_right_corner()
-        left_v = self.v_rect.get_upper_left_corner()
-        right_v = self.v_rect.get_lower_right_corner()
 
-        h = rg.Rectangle(left_h, right_h)
-        v = rg.Rectangle(left_v, right_h)
-        h.fill_color = self.h_rect.fill_color
-        v.fill_color = self.v_rect.fill_color
+        thickness = self.v_rect.get_width()
+        width = self.h_rect.get_width()
+        height = self.v_rect.get_height()
+
+        intersection_point_x = left_h.x + (width / 2)
+        intersection_point_y = left_h.y + (thickness / 2)
+        intersection_point = rg.Point(intersection_point_x, intersection_point_y)
+
+        return CapitalT(intersection_point, width, height, thickness)
+
 
 
 # -----------------------------------------------------------------------------
