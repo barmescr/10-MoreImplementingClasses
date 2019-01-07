@@ -340,8 +340,9 @@ class CapitalT(object):
         intersection_point_y = left_h.y + (thickness / 2)
         intersection_point = rg.Point(intersection_point_x, intersection_point_y)
 
-        return CapitalT(intersection_point, width, height, thickness)
-
+        t = CapitalT(intersection_point, width, height, thickness)
+        t.set_colors(self.v_rect.fill_color, self.v_rect.outline_color)
+        return t
 
 
 # -----------------------------------------------------------------------------
